@@ -20,4 +20,17 @@ class LinkedList
   def prepend(value)
     @head = Node.new(value, @head)
   end
+
+  def size
+    size = 0
+    unless @head.nil?
+      last_node = @head
+      until last_node.next_node.nil?
+        last_node = last_node.next_node
+        size += 1
+      end
+      size += 1
+    end
+    size
+  end
 end
