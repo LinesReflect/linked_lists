@@ -30,4 +30,14 @@ class LinkedList
     last_node = last_node.next_node until last_node.next_node.nil?
     last_node
   end
+
+  def at(index)
+    current_node = @head
+    i = 0
+    while i < index
+      current_node = current_node.next_node
+      i += 1
+    end
+    current_node
+  end
 end
