@@ -3,7 +3,7 @@ require_relative 'node'
 class LinkedList
   attr_accessor :head
 
-  def initialize()
+  def initialize
     @head = nil
   end
 
@@ -18,6 +18,6 @@ class LinkedList
   end
 
   def prepend(value)
-    @head ? [@head = Node.new(value), @head.next_node = @head] : @head = Node.new(value)
+    @head = Node.new(value, @head)
   end
 end
