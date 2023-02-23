@@ -8,13 +8,7 @@ class LinkedList
   end
 
   def append(value)
-    if @head.nil? 
-      @head = Node.new(value) 
-    else
-      last_node = @head
-      last_node = last_node.next_node until last_node.next_node.nil?
-      last_node.next_node = Node.new(value)
-    end
+    @head.nil? ? @head = Node.new(value) : tail.next_node = Node.new(value)
   end
 
   def prepend(value)
@@ -29,5 +23,11 @@ class LinkedList
       size += 1
     end
     size
+  end
+
+  def tail
+    last_node = @head
+    last_node = last_node.next_node until last_node.next_node.nil?
+    last_node
   end
 end
