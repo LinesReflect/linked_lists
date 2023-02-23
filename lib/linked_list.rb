@@ -23,12 +23,9 @@ class LinkedList
 
   def size
     size = 0
-    unless @head.nil?
-      last_node = @head
-      until last_node.next_node.nil?
-        last_node = last_node.next_node
-        size += 1
-      end
+    current_node = @head
+    until current_node.nil?
+      current_node = current_node.next_node
       size += 1
     end
     size
