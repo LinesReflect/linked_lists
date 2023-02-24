@@ -9,6 +9,7 @@ class LinkedList
 
   def append(value)
     @head.nil? ? @head = Node.new(value) : tail.next_node = Node.new(value)
+    to_s
   end
 
   def prepend(value)
@@ -43,11 +44,11 @@ class LinkedList
 
   def to_s
     current_node = @head
+    string = ''
     until current_node.nil?
-      return "#{current_node.value}" if current_node.next_node.nil?
-
-      print "#{current_node.value} -> "
+      current_node.next_node.nil? ? string += "#{current_node.value}" : string += "#{current_node.value} -> "
       current_node = current_node.next_node
     end
+    puts string
   end
 end
