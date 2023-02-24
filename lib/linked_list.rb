@@ -40,4 +40,14 @@ class LinkedList
     end
     current_node
   end
+
+  def to_s
+    current_node = @head
+    until current_node.nil?
+      return "#{current_node.value}" if current_node.next_node.nil?
+
+      print "#{current_node.value} -> "
+      current_node = current_node.next_node
+    end
+  end
 end
