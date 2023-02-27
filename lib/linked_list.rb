@@ -80,4 +80,20 @@ class LinkedList
     idx += 1
     insert_at(value, index, current_node.next_node, idx)
   end
+
+  def remove_at(index, current_node = @head, idx = 0)
+    return nil if current_node.nil?
+
+    if idx == index - 1 && current_node.next_node == tail
+      return current_node.next_node = nil
+    elsif idx == index - 1
+      new_node = current_node.next_node.next_node
+      current_node.next_node = nil
+      current_node.next_node = new_node
+      return
+    end
+
+    idx += 1
+    remove_at( index, current_node.next_node, idx)
+  end
 end
