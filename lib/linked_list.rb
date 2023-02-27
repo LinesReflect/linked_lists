@@ -66,4 +66,18 @@ class LinkedList
     current_node == tail ? string += "#{current_node.value}" : string += "#{current_node.value} -> "
     to_s(current_node.next_node, string)
   end
+
+  def insert_at(value, index, current_node = @head, idx = 0)
+    return current_node = Node.new(value) if current_node.nil?
+
+    if idx == index - 1
+      old_node = current_node.next_node
+      current_node.next_node = Node.new(value)
+      current_node.next_node.next_node = old_node
+      return
+    end
+
+    idx += 1
+    insert_at(value, index, current_node.next_node, idx)
+  end
 end
