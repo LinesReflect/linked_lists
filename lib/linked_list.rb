@@ -25,10 +25,11 @@ class LinkedList
     size
   end
 
-  def tail
-    last_node = @head
-    last_node = last_node.next_node until last_node.next_node.nil?
-    last_node
+  def tail(current_node = @head)
+    return current_node if current_node.next_node.nil?
+    return nil if current_node.nil?
+
+    tail(current_node.next_node)
   end
 
   def at(index, current_node = @head, count = 0)
