@@ -15,14 +15,12 @@ class LinkedList
     @head = Node.new(value, @head)
   end
 
-  def size
-    size = 0
-    current_node = @head
-    until current_node.nil?
-      current_node = current_node.next_node
-      size += 1
-    end
-    size
+  def size(current_node = @head, size = 1)
+    return 0 if current_node.nil?
+    return size if current_node.next_node.nil?
+
+    size += 1
+    size(current_node.next_node, size)
   end
 
   def tail(current_node = @head)
