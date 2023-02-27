@@ -53,13 +53,10 @@ class LinkedList
     find(value, current_node.next_node, index)
   end
 
-  def to_s
-    current_node = @head
-    string = ''
-    until current_node.nil?
-      current_node.next_node.nil? ? string += "#{current_node.value}" : string += "#{current_node.value} -> "
-      current_node = current_node.next_node
-    end
-    string
+  def to_s(current_node = @head, string = '')
+    return string if current_node.nil?
+
+    current_node == tail ? string += "#{current_node.value}" : string += "#{current_node.value} -> "
+    to_s(current_node.next_node, string)
   end
 end
