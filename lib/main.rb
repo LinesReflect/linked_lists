@@ -26,8 +26,14 @@ puts "Tail: #{list.tail.value}"
 puts "At index 9: #{list.at(9).value}"
 
 list.pop
-puts " Pop List: #{list.to_s}"
+puts "Pop List: #{list.to_s}"
 
 puts "Contains 7?: #{list.contains?(7)}"
 
 puts "Find 3: Index #{list.find(3)}"
+
+list.insert_at(7.5, 7)
+
+list.remove_at(3)
+
+puts list.to_s
