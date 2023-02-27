@@ -48,6 +48,14 @@ class LinkedList
     contains?(value, current_node.next_node)
   end
 
+  def find(value, current_node = @head, index = 0)
+    return index if current_node.value == value
+    return nil if current_node.next_node.nil?
+
+    index += 1
+    find(value, current_node.next_node, index)
+  end
+
   def to_s
     current_node = @head
     string = ''
