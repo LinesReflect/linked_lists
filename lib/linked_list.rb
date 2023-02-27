@@ -38,6 +38,13 @@ class LinkedList
     at(index, current_node.next_node, count)
   end
 
+  def pop(current_node = @head)
+    return nil if current_node.nil?
+    return current_node.next_node = nil if current_node.next_node == tail
+
+    pop(current_node.next_node)
+  end
+
   def contains?(value, current_node = @head)
     return true if current_node.value == value
     return false if current_node.next_node.nil?
